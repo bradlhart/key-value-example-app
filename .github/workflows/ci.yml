@@ -31,9 +31,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
-      - name: Docker Command
+      - name: Docker Compose Up
         run: |
-          docker run --publish 8888:8888 ${{ job.services.nodeos.id }} nodeos --data-dir /root/.local/share -e -p eosio --hard-replay --plugin eosio::producer_plugin --plugin eosio::chain_api_plugin --plugin eosio::http_plugin --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false --verbose-http-errors --max-transaction-time=100
+          yarn docker-run
       - name: Update
         run: |
           yarn install && yarn upgrade && npx syncyarnlock@1.0.19 -s -k && rm -rf yarn.lock && yarn install
@@ -68,6 +68,9 @@ jobs:
           spec: cypress/integration/index.spec.js
           start: yarn serve
           wait-on: http://localhost:8080
+      - name: Docker Compose Down
+        run: |
+          docker-compose down -v
     services:
       nodeos:
         image: bradlhart/read-only-example:v0.0.1
