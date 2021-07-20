@@ -4,14 +4,14 @@
 		{
 			"label": "Build Contract with eosio-cpp",
 			"type": "shell",
-			"command": "eosio-cpp -abigen ./contracts/kv_todo/src/kv_todo.cpp -o ./contracts/kv_todo/build/kv_todo.wasm -R ./contracts/kv_todo/ricardian/ -I ./contracts/kv_todo/include/",
+			"command": "eosio-cpp -abigen ./contracts/ro_users/src/ro_users.cpp -o ./contracts/ro_users/build/ro_users.wasm -R ./contracts/ro_users/ricardian/",
 			"group": "build"
 		},
 		{
 			"label": "cmake",
 			"type": "shell",
 			"options": {
-				"cwd": "${workspaceRoot}/contracts/kv_todo/build"
+				"cwd": "${workspaceRoot}/contracts/ro_users/build"
 			},
 			"command": "cmake .."
 		},
@@ -20,7 +20,7 @@
 			"type": "shell",
 			"command": "make",
 			"options": {
-				"cwd": "${workspaceRoot}/contracts/kv_todo/build"
+				"cwd": "${workspaceRoot}/contracts/ro_users/build"
 			},
 			"group": "build",
 			"dependsOn":["cmake"]

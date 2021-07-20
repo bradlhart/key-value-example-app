@@ -1,6 +1,6 @@
-# Key Value Example App
+# Read Only Example App
 
-Key Value Example App lets developers start using the new key value database feature with EOSIO and eosjs in a matter of minutes. We built this example application with ease of use and simplicity in mind. It can be used by new and advanced developers to try out the new feature. We hope you will find this example application insightful and welcome feedback on future improvements. There are two methods for running the example application at this time.  It can be run locally on your development environment or run with Gitpod.io, a development environment in the cloud.
+Read Only Example App lets developers start using the new read only transaction feature with EOSIO and eosjs in a matter of minutes. We built this example application with ease of use and simplicity in mind. It can be used by new and advanced developers to try out the new feature. We hope you will find this example application insightful and welcome feedback on future improvements. There are two methods for running the example application at this time.  It can be run locally on your development environment or run with Gitpod.io, a development environment in the cloud.
 
 ### Gitpod
 
@@ -8,9 +8,9 @@ Powered by Gitpod.io and Docker, it provides developers with a personal single-n
 
 1. Fork this repo to your personal GitHub account so that you can save your work into your personal Github account.
 
-2. Point your browser to the following URL https://gitpod.io/#https://github.com/your-github-account/key-value-example-app to start the IDE. You will be automatically prompted to create a Gitpod account (all types of Gitpod accounts (including free) will work). You can also choose to provide multiple developers push access to your personal github fork of this repo to collaborate with them (one developer working on the smart contract (C++) while the other working on the front-end decentralized application (EOSJS), etc.). Each such developer sharing access to the forked repo will get their own copy of the EOSIO blockchain components to enable independent development.
+2. Point your browser to the following URL https://gitpod.io/#https://github.com/your-github-account/read-only-example-app to start the IDE. You will be automatically prompted to create a Gitpod account (all types of Gitpod accounts (including free) will work). You can also choose to provide multiple developers push access to your personal github fork of this repo to collaborate with them (one developer working on the smart contract (C++) while the other working on the front-end decentralized application (EOSJS), etc.). Each such developer sharing access to the forked repo will get their own copy of the EOSIO blockchain components to enable independent development.
 
-Upon launching the IDE, the nodeos and webpack processes will start the chain and webapp respectively and you view and change the todo application that the smart contract manages. You can test drive the system by accessing the IDE at https://gitpod.io/#https://github.com/EOSIO/key-value-example-app (however you will not be able to save your work into the EOSIO/key-value-example-app Github repository).
+Upon launching the IDE, the nodeos and webpack processes will start the chain and webapp respectively and you view and change the todo application that the smart contract manages. You can test drive the system by accessing the IDE at https://gitpod.io/#https://github.com/EOSIO/read-only-example-app (however you will not be able to save your work into the EOSIO/read-only-example-app Github repository).
 
 ### Local Development Environment
 
@@ -37,24 +37,24 @@ The example application has the simple smart contract located in `contracts`.  T
 If you would like, this contract can be changed and re-built using Gitpod or vscode "Run Build Task" command which will give you the option to either build with eosio-cpp or cmake (requires cmake to be installed).  Additionally, it can be run manually using either of the following options run from the repository's root directory:
 
 ```shell
-eosio-cpp -abigen ./contracts/kv_todo/src/kv_todo.cpp -o ./contracts/kv_todo/build/kv_todo.wasm -R ./contracts/kv_todo/ricardian/ -I ./contracts/kv_todo/include/
+eosio-cpp -abigen ./contracts/ro_users/src/ro_users.cpp -o ./contracts/ro_users/build/ro_users.wasm -R ./contracts/ro_users/ricardian/
 ```
 
 ```shell
-cd ./contracts/kv_todo/build
+cd ./contracts/ro_users/build
 cmake ..
 make
 ```
 
-Running any of these options will produce `kv_todo.abi` and `kv_todo.wasm` files inside the contract's build directory.
+Running any of these options will produce `ro_users.abi` and `ro_users.wasm` files inside the contract's build directory.
 
 ### Installing the contract
 
 To set the contract onto the chain, you will need to run these two commands to update the abi and code.  Depending on how you built the contract, the `{path to file}` will need to be adjusted.
 
 ```
-cleos set abi todo {path to file}/kv_todo.abi -p todo@active -p eosio@active
-cleos set code todo {path to file}/kv_todo.wasm -p todo@active -p eosio@active
+cleos set abi todo {path to file}/ro_users.abi -p todo@active -p eosio@active
+cleos set code todo {path to file}/ro_users.wasm -p todo@active -p eosio@active
 ```
 
 ## Viewing the front-end decentralized web app:

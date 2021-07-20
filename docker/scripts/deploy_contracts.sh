@@ -142,7 +142,7 @@ echo "Creating accounts and deploying contracts"
 
 sleep 1s
 start_wallet
-cleos create account eosio todo $SYSTEM_ACCOUNT_PUBLIC_KEY
+cleos create account eosio readonly $SYSTEM_ACCOUNT_PUBLIC_KEY
 
 # preactivate concensus upgrades
 post_preactivate
@@ -177,15 +177,10 @@ cleos push action eosio setkvparams '[{"max_key_size":1024, "max_value_size":409
 cleos push action eosio setpparams '["01110000400100000000"]' -p eosio@active
 
 sleep 1s
-setabi todo $CONTRACTS_DIR/kv_todo/kv_todo.abi
-setcode todo $CONTRACTS_DIR/kv_todo/kv_todo.wasm
+setabi readonly $CONTRACTS_DIR/ro_users/ro_users.abi
+setcode readonly $CONTRACTS_DIR/ro_users/ro_users.wasm
 
-sleep 1s
-cleos push action todo upsert '["bf581bee-9f2c-447b-94ad-78e4984b6f51", "todo", "Write Hello World Contract", false]' -p todo@active
-sleep 1s
-cleos push action todo upsert '["b7b0d09d-a82b-44d9-b067-3bae2d02917e", "todo", "Start Blockchain", false]' -p todo@active
-sleep 1s
-cleos push action todo upsert '["ac8acfe7-cd4e-4d22-8400-218b697a4517", "todo", "Deploy Hello World Contract", false]' -p todo@active
+cleos push action readonly setup '[]' -p readonly@active
 
 echo "All done initializing the blockchain"
 

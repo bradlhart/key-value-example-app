@@ -1,63 +1,43 @@
 import { Api } from 'eosjs'
-import { Entry } from './'
+import { User } from './'
 
-const getbyaccname = async (api: Api) => {
+const get = async (api: Api) => {
   return api.transact({
     actions: [{
-      account: 'todo',
-      name: 'getbyaccname',
+      account: 'readonly',
+      name: 'get',
       authorization: [{
-        actor: 'todo',
+        actor: 'readonly',
         permission: 'active',
       }],
-      data: {
-        account_name: 'todo'
-      }
+      data: {}
     }]
   }, {
-    blocksBehind: 3,
-    expireSeconds: 30
+    useLastIrreversible: true,
+    expireSeconds: 30,
+    readOnlyTrx: true,
+    returnFailureTraces: true,
   }) as any
 }
 
-const upsert = async (api: Api, entry: Entry) => {
+const put = async (api: Api, user: User) => {
   return api.transact({
     actions: [{
-      account: 'todo',
-      name: 'upsert',
+      account: 'readonly',
+      name: 'put',
       authorization: [{
-        actor: 'todo',
+        actor: 'readonly',
         permission: 'active',
       }],
-      data: entry
+      data: user
     }]
   }, {
-    blocksBehind: 3,
-    expireSeconds: 30
-  }) as any
-}
-
-const del = async (api: Api, uuid: string) => {
-  return api.transact({
-    actions: [{
-      account: 'todo',
-      name: 'del',
-      authorization: [{
-        actor: 'todo',
-        permission: 'active',
-      }],
-      data: {
-        uuid
-      }
-    }]
-  }, {
-    blocksBehind: 3,
+    useLastIrreversible: true,
     expireSeconds: 30
   }) as any
 }
 
 export default {
-  getbyaccname,
-  upsert,
-  del,
+  get,
+  put,
 }

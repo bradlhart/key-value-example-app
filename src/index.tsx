@@ -9,8 +9,8 @@ import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig'
 import 'semantic-ui-css/semantic.min.css'
 import './styles.css'
 
-import { NewEntry } from './NewEntry'
-import { EntryComponent } from './Entry'
+import { NewUserModal } from './NewUserModal'
+import { UserComponent } from './User'
 import { Error } from './Error'
 
 import actions from './actions'

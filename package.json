@@ -1,7 +1,7 @@
 {
   "private": true,
   "version": "1.0.0",
-  "description": "Key Value Example App",
+  "description": "Read Only Example App",
   "main": "index.html",
   "scripts": {
     "serve": "webpack serve --mode development",
@@ -10,8 +10,8 @@
     "docker-persistent": "docker-compose up",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "block.one",
+  "license": "MIT",
   "devDependencies": {
     "@blockone/eslint-config-blockone": "^4.0.1",
     "@types/react": "^17.0.6",
@@ -31,10 +31,10 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "eosjs": "^22.0.0",
+    "eosjs": "^22.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "semantic-ui-css": "^2.4.1",
-    "uuid": "^8.3.2"
+    "semantic-ui-react": "^2.0.3"
   }
 }

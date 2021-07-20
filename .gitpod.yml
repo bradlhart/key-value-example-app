@@ -1,4 +1,4 @@
-image: eosio/key-value-example:v1.0.0
+image: bradlhart/read-only-example:v0.0.1
 
 ports:
 - port: 3000
