@@ -33,7 +33,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Docker Compose Up
         run: |
-          yarn docker-run
+          docker-compose down -v && docker-compose up -d
       - name: Update
         run: |
           yarn install && yarn upgrade && npx syncyarnlock@1.0.19 -s -k && rm -rf yarn.lock && yarn install
