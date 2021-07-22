@@ -10,7 +10,7 @@ Powered by Gitpod.io and Docker, it provides developers with a personal single-n
 
 2. Point your browser to the following URL https://gitpod.io/#https://github.com/your-github-account/read-only-example-app to start the IDE. You will be automatically prompted to create a Gitpod account (all types of Gitpod accounts (including free) will work). You can also choose to provide multiple developers push access to your personal github fork of this repo to collaborate with them (one developer working on the smart contract (C++) while the other working on the front-end decentralized application (EOSJS), etc.). Each such developer sharing access to the forked repo will get their own copy of the EOSIO blockchain components to enable independent development.
 
-Upon launching the IDE, the nodeos and webpack processes will start the chain and webapp respectively and you view and change the todo application that the smart contract manages. You can test drive the system by accessing the IDE at https://gitpod.io/#https://github.com/EOSIO/read-only-example-app (however you will not be able to save your work into the EOSIO/read-only-example-app Github repository).
+Upon launching the IDE, the nodeos and webpack processes will start the chain and webapp respectively and you view and change the read only application that the smart contract manages. You can test drive the system by accessing the IDE at https://gitpod.io/#https://github.com/EOSIO/read-only-example-app (however you will not be able to save your work into the EOSIO/read-only-example-app Github repository).
 
 ### Local Development Environment
 
@@ -53,8 +53,8 @@ Running any of these options will produce `ro_users.abi` and `ro_users.wasm` fil
 To set the contract onto the chain, you will need to run these two commands to update the abi and code.  Depending on how you built the contract, the `{path to file}` will need to be adjusted.
 
 ```
-cleos set abi todo {path to file}/ro_users.abi -p todo@active -p eosio@active
-cleos set code todo {path to file}/ro_users.wasm -p todo@active -p eosio@active
+cleos set abi readonly {path to file}/ro_users.abi -p readonly@active -p eosio@active
+cleos set code readonly {path to file}/ro_users.wasm -p readonly@active -p eosio@active
 ```
 
 ## Viewing the front-end decentralized web app:

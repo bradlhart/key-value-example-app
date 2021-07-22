@@ -29,7 +29,7 @@ fi
 mkdir -p $ROOT_DIR/bin
 
 PATH="$PATH:$ROOT_DIR/bin:$ROOT_DIR/bin/scripts"
-GITPOD_WORKSPACE_ROOT="/workspace/key-value-example-app"
+GITPOD_WORKSPACE_ROOT="/workspace/read-only-example-app"
 CONFIG_DIR="$ROOT_DIR/bin/config-dir"
 
 function post_preactivate {

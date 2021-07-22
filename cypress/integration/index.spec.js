@@ -1,4 +1,4 @@
-describe('Key-Value-Example', () => {
+describe('Read-Only-Example', () => {
 
   it('Default State', () => {
     cy.visit('http://localhost:8080')
